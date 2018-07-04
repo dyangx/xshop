@@ -42,13 +42,23 @@
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
-        <!---试图模板  -->
+        <!---视图模板  -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-    </dependencies>
+        <!--  jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- mysql 驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
 
+    </dependencies>
     <build>
         <plugins>
             <plugin>
