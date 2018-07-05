@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/sso")
 public class LoginController {
 
-    @RequestMapping("login.html")
+    @RequestMapping("/login.html")
     public String init(){
         return "login.html";
     }
