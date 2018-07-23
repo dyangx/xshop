@@ -11,5 +11,13 @@ public interface UserService {
      * @param username
      * @return
      */
-    public User getUserByName(String username);
+    User getUserByName(String username);
+
+    /**
+     * 登陆方法
+     * @param username
+     * @param password
+     * @param remenberme
+     */
+    void login(String username, String password, boolean remenberme);
 }

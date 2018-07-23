@@ -1,6 +1,5 @@
 package com.dyang.config;
 
-import org.apache.commons.collections.map.LinkedMap;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -13,12 +12,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * shiro 配置类
  * Created by DYang on 2018/7/5
  */
 @Configuration
 public class ShiroConfig {
     @Bean
-    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
+    public ShiroFilterFactoryBean xshopShiroFilter(SecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //指定跳转
@@ -31,7 +31,7 @@ public class ShiroConfig {
         //拦截器
         Map<String,String> filterChainDefinitionMap = new HashMap<>();
         filterChainDefinitionMap.put("/static/**","anon");
-        filterChainDefinitionMap.put("/sso/**","anon");
+        filterChainDefinitionMap.put("/login/**","anon");
         filterChainDefinitionMap.put("/logout","logout");
         filterChainDefinitionMap.put("/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
@@ -44,15 +44,14 @@ public class ShiroConfig {
      */
     @Bean
     public SecurityManager securityManager(){
-        DefaultWebSecurityManager defaultWebSecurityManager = new DefaultWebSecurityManager();
-        defaultWebSecurityManager.setRealm(shiroRealm());
-
-        return null;
+        DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
+        manager.setRealm(shiroRealm());
+        return manager;
     }
 
     @Bean
-    public ShiroRealm shiroRealm(){
-        ShiroRealm myShiroRealm = new ShiroRealm();
-        return myShiroRealm;
+    public AuthRealm shiroRealm(){
+        AuthRealm authRealm = new AuthRealm();
+        return authRealm;
     }
 }
