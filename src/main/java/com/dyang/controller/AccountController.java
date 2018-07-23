@@ -76,6 +76,7 @@ public class AccountController {
 
     @RequestMapping("registe.json")
     public Map<String,Object> registe(){
+
         return null;
     }
 }
