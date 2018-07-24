@@ -2,6 +2,7 @@ package com.dyang.controller;
 
 import com.dyang.model.User;
 import com.dyang.service.UserService;
+import com.dyang.util.IPUtil;
 import org.apache.shiro.authc.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -75,7 +78,11 @@ public class AccountController {
     }
 
     @RequestMapping("registe.json")
-    public Map<String,Object> registe(){
+    @ResponseBody
+    public Map<String,Object> registe(@RequestParam String username, @RequestParam String password, HttpServletRequest request){
+        User user = new User();
+        user.setRegisterIp(IPUtil.getIp(request));
+        user.setRegisterDate(new Date());
         return null;
     }
 }

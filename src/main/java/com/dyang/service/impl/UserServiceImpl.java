@@ -28,7 +28,6 @@ public class UserServiceImpl implements UserService {
     public void login(String username, String password, boolean remenberme) {
         UsernamePasswordToken token = new UsernamePasswordToken(username,password,remenberme);
         Subject subject = SecurityUtils.getSubject();
-        //防止注入会话
         subject.logout();
         subject.login(token);
     }
