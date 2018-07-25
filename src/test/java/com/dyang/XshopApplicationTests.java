@@ -21,4 +21,13 @@ public class XshopApplicationTests {
         System.out.println(user);
     }
 
+    @Test
+    public void test(){
+        User user = new User();
+        user.setUsername("kkA");
+        user.setId("9874651237845612");
+        userService.saveUser(user);
+        System.out.println(user);
+    }
+
 }

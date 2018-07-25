@@ -31,4 +31,9 @@ public class UserServiceImpl implements UserService {
         subject.logout();
         subject.login(token);
     }
+
+    @Override
+    public void saveUser(User user) {
+        useRrespository.save(user);
+    }
 }

@@ -20,4 +20,6 @@ public interface UserService {
      * @param remenberme
      */
     void login(String username, String password, boolean remenberme);
+
+    void saveUser(User user);
 }
