@@ -22,7 +22,7 @@ public class ShiroConfig {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //指定跳转
-        shiroFilterFactoryBean.setLoginUrl("/login/init.html");
+        shiroFilterFactoryBean.setLoginUrl("/account/login.html");
         shiroFilterFactoryBean.setSuccessUrl("/index.html");
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         //自定义过滤器
@@ -32,6 +32,7 @@ public class ShiroConfig {
         Map<String,String> filterChainDefinitionMap = new HashMap<>();
         filterChainDefinitionMap.put("/static/**","anon");
         filterChainDefinitionMap.put("/login/**","anon");
+        filterChainDefinitionMap.put("/account/**","anon");
         filterChainDefinitionMap.put("/logout","logout");
         filterChainDefinitionMap.put("/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);

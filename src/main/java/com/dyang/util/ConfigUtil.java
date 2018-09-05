@@ -11,4 +11,6 @@ public class ConfigUtil {
     public static final String SALT = "963zzDJidsa===asdfas125781a7jdiDDDwe8wxxcc";
 
     public static final String USER_HEAD = "user_head";
+
+    public static final String VCODE = "vcode";
 }

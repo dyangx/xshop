@@ -2,8 +2,12 @@ package com.dyang.controller;
 
 import com.dyang.model.User;
 import com.dyang.service.UserService;
+import com.dyang.util.ConfigUtil;
 import com.dyang.util.IPUtil;
+import com.dyang.util.ShiroUtil;
+import com.dyang.util.ValidateCode;
 import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -84,5 +90,12 @@ public class AccountController {
         user.setRegisterIp(IPUtil.getIp(request));
         user.setRegisterDate(new Date());
         return null;
+    }
+
+    @RequestMapping("/getvcode")
+    public void getVcode(HttpServletResponse response) throws IOException {
+        ValidateCode vcode = new ValidateCode(100,40,5,100);
+        ShiroUtil.getSession().setAttribute(ConfigUtil.VCODE,vcode.createCode());
+        vcode.write(response);
     }
 }
