@@ -1,6 +1,7 @@
 package com.dyang.service;
 
 import com.dyang.model.User;
+import org.apache.shiro.authc.UsernamePasswordToken;
 
 /**
  * Created by DYang on 2018/7/4
@@ -14,12 +15,9 @@ public interface UserService {
     User getUserByName(String username);
 
     /**
-     * 登陆方法
-     * @param username
-     * @param password
-     * @param remenberme
+     * @param usernamePasswordToken
      */
-    void login(String username, String password, boolean remenberme);
+    void login(UsernamePasswordToken usernamePasswordToken);
 
     void saveUser(User user);
 }

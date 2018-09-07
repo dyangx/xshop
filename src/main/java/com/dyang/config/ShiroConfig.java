@@ -2,7 +2,9 @@ package com.dyang.config;
 
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.servlet.SimpleCookie;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -30,9 +32,11 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setFilters(filterMap);
         //拦截器
         Map<String,String> filterChainDefinitionMap = new HashMap<>();
-        filterChainDefinitionMap.put("/static/**","anon");
-        filterChainDefinitionMap.put("/login/**","anon");
         filterChainDefinitionMap.put("/account/**","anon");
+        filterChainDefinitionMap.put("/static/**","anon");
+        filterChainDefinitionMap.put("/index/**","anon");
+        filterChainDefinitionMap.put("/index*","anon");
+        filterChainDefinitionMap.put("/login/**","anon");
         filterChainDefinitionMap.put("/logout","logout");
         filterChainDefinitionMap.put("/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
@@ -43,10 +47,11 @@ public class ShiroConfig {
      * 安全管理器核心
      * @return
      */
-    @Bean
-    public SecurityManager securityManager(){
+    @Bean(name = "securityManager")
+    public DefaultWebSecurityManager MySecurityManager(){
         DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
         manager.setRealm(shiroRealm());
+        manager.setRememberMeManager(this.rememberMeManager());
         return manager;
     }
 
@@ -54,5 +59,34 @@ public class ShiroConfig {
     public AuthRealm shiroRealm(){
         AuthRealm authRealm = new AuthRealm();
         return authRealm;
+    }
+
+    /**
+     * cookie对象
+     * rememberMeCookie方法是设置Cookie的生成模版，比如cookie的name，cookie的有效时间等等。
+     * @return
+     */
+    @Bean
+    public SimpleCookie rememberMeCookie(){
+        //cookie名称
+        SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
+        //30天
+        simpleCookie.setMaxAge(259200);
+        simpleCookie.setHttpOnly(true);
+        return simpleCookie;
+    }
+
+    /**
+     * cookie管理对象;
+     * rememberMeManager方法是生成rememberMe管理器，而且要将这个rememberMe管理器设置到securityManager中
+     * @return
+     */
+    @Bean
+    public CookieRememberMeManager rememberMeManager(){
+        CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
+        //cookie加密的密钥
+        cookieRememberMeManager.setCipherKey(org.apache.shiro.codec.Base64.decode("yeAAo1E8BOeAYfBlm4NG9Q=="));
+        cookieRememberMeManager.setCookie(rememberMeCookie());
+        return cookieRememberMeManager;
     }
 }

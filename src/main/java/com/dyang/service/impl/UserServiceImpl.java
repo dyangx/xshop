@@ -25,11 +25,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void login(String username, String password, boolean remenberme) {
-        UsernamePasswordToken token = new UsernamePasswordToken(username,password,remenberme);
+    public void login(UsernamePasswordToken usernamePasswordToken) {
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
-        subject.login(token);
+        subject.login(usernamePasswordToken);
     }
 
     @Override

@@ -21,13 +21,14 @@
 					<div class="clear"></div>
 					<div class="xian center"></div>
 				</div>
-				<div class="login_main center">
+				<div class="login_main center" id="yhfom">
+					<input v-model="msg"/>
 					<div class="username">用户名:&nbsp;<input class="shurukuang" type="text" name="username" placeholder="请输入你的用户名"/></div>
 					<div class="username">密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input class="shurukuang" type="password" name="password" placeholder="请输入你的密码"/></div>
 					<div class="username">
 						<div class="left fl">验证码:&nbsp;<input class="yanzhengma" type="text" name="username" placeholder="请输入验证码"/></div>
 						<div class="right fl">
-							<img id="yzm" src="/xshop/account/getvcode"/>
+							<img id="yzm" src="/xshop/account/getvcode" onclick="changeVcode();"/>
 						</div>
 						<div class="clear"></div>
 					</div>
@@ -43,11 +44,13 @@
 			<div class="copyright">简体 | 繁体 | English | 常见问题</div>
 			<div class="copyright">小米公司版权所有-京ICP备10046444-<img src="../static/image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号</div>
 		</footer>
-	<script src="../static/js/jquery-1.11.0.min.js"></script>
+	<!--<script src="../static/js/common/vue.js"></script>
+	<script src="../static/js/login/login.js"></script>-->
 	<script>
-		$('#yzm').click(function () {
-			$(this).attr('src','/xshop/account/getvcode?rand='+new Date().getTime());
-        });
+		function changeVcode() {
+			var yzm = document.getElementById('yzm');
+			yzm.setAttribute('src','/xshop/account/getvcode?'+new Date().getTime());
+        }
 	</script>
 	</body>
 </html>

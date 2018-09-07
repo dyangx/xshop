@@ -32,7 +32,7 @@ public class AuthRealm extends AuthorizingRealm {
 
     /**
      * 登陆验证函数
-     * @param token
+     * @param
      * @return
      * @throws AuthenticationException
      */
@@ -40,7 +40,6 @@ public class AuthRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authToken) throws AuthenticationException {
         Session session = ShiroUtil.getSession();
         UsernamePasswordToken token = (UsernamePasswordToken) authToken;
-        String userName = token.getUsername();
         User user = userService.getUserByName(token.getUsername());
         if(user == null){
             throw new UnknownAccountException("用户名或密码错误！");

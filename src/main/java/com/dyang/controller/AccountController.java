@@ -2,11 +2,9 @@ package com.dyang.controller;
 
 import com.dyang.model.User;
 import com.dyang.service.UserService;
-import com.dyang.util.ConfigUtil;
-import com.dyang.util.IPUtil;
-import com.dyang.util.ShiroUtil;
-import com.dyang.util.ValidateCode;
+import com.dyang.util.*;
 import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,21 +49,21 @@ public class AccountController {
      */
     @RequestMapping("/dologin.json")
     @ResponseBody
-    public Map<String,Object> dologin(@RequestParam String username, @RequestParam String password, String vcode){
-        Map<String,Object> resMap = new HashMap<>();
+    public ReturnData dologin(@RequestParam String username, @RequestParam String password, String vcode) throws MyException {
+        ReturnData returnData;
+        ShiroUtil.ValidateYzm(vcode);
         try {
-            userService.login(username,password,true);
-            resMap.put("code",100);
+            UsernamePasswordToken token = new UsernamePasswordToken(username,password,true);
+            userService.login(token);
+            returnData = ReturnData.success();
         } catch (AuthenticationException e) {
             e.printStackTrace();
-            resMap.put("code",999);
-            resMap.put("msg",e.getMessage());
+            returnData = ReturnData.error(e.getMessage());
         } catch (Exception e){
             e.printStackTrace();
-            resMap.put("code",999);
-            resMap.put("msg","系统异常！");
+            returnData = ReturnData.error("系统异常");
         }
-        return resMap;
+        return returnData;
     }
 
     /**
