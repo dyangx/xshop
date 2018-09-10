@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * Created by DYang on 2018/9/7
  */
-public class ReturnData extends HashMap<String,Object> implements Serializable {
+public class ReturnData implements Serializable {
 
     private static final Integer CODE_SUCCESS = 100;
 

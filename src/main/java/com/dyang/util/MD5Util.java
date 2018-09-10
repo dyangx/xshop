@@ -8,7 +8,7 @@ public class MD5Util {
 
 	/**
 	 * 对字符串md5加密(大写+数字)
-	 * @param str 传入要加密的字符串
+	 * @param s 传入要加密的字符串
 	 * @return  MD5加密后的字符串
 	 */
 	public static String MD5(String s) {

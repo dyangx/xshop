@@ -26,7 +26,6 @@ public class AuthRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-
         return null;
     }
 
@@ -42,8 +41,8 @@ public class AuthRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authToken;
         User user = userService.getUserByName(token.getUsername());
         if(user == null){
-            throw new UnknownAccountException("用户名或密码错误！");
-        }else if(user.getPassword().equals(MD5Util.MD5(token.getPassword()+ ConfigUtil.SALT))){
+            throw new UnknownAccountException("用户不存在！");
+        }else if(user.getPassword().equals(MD5Util.MD5(new String(token.getPassword())+ ConfigUtil.SALT))){
             session.setAttribute(ConfigUtil.USER_SESSION, user);
             return new SimpleAuthenticationInfo(token.getUsername(),token.getPassword(),this.getName());
         }

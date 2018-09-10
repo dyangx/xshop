@@ -31,8 +31,8 @@ public class ShiroUtil {
 
     public static void ValidateYzm(String vcode) throws MyException {
         Object code = getSession().getAttribute(ConfigUtil.VCODE);
-        if(code == null || !code.equals(vcode)){
-            throw new MyException("验证码错误");
+        if(code == null || !code.equals(vcode.toUpperCase())){
+            throw new MyException("验证码错误!");
         }
     }
 }
