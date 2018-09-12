@@ -1,7 +1,7 @@
 package com.dyang.service.impl;
 
 import com.dyang.model.User;
-import com.dyang.respository.UseRrespository;
+import com.dyang.respository.UserRepository;
 import com.dyang.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    UseRrespository useRrespository;
+    UserRepository useRrespository;
 
     @Override
     public User getUserByName(String username) {

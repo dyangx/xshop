@@ -22,7 +22,7 @@ function login() {
         url: '/xshop/account/dologin.json',
         success: function (data) {
             if(data.code == 100){
-
+                window.location.href='/xshop/index.html';
             }else{
                 $('#err').html(data.msg);
                 $('#yzm').click();

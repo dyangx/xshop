@@ -4,13 +4,14 @@ import com.dyang.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
+
 
 /**
  * Created by DYang on 2018/7/4
  */
-@Repository
-public interface UseRrespository extends JpaRepository<User,Integer> {
+@Component
+public interface UserRepository extends JpaRepository<User,Integer> {
 
     /**
      * 根据名字查询用户
@@ -19,5 +20,6 @@ public interface UseRrespository extends JpaRepository<User,Integer> {
      */
     @Query("from User where username =:username")
     public User getUserByName(@Param("username") String username);
+
 
 }
