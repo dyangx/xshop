@@ -2,9 +2,11 @@ package com.dyang;
 
 import org.apache.shiro.codec.Base64;
 import org.junit.Test;
+import org.springframework.lang.Nullable;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+import javax.validation.constraints.NotNull;
 import java.security.NoSuchAlgorithmException;
 
 /**
@@ -35,4 +37,14 @@ public class TestYou {
         System.out.println(org.apache.shiro.codec.Base64.decode("874512=="));
     }
 
+    @Test
+    public void test3() throws InterruptedException {
+        Long t1 = System.currentTimeMillis();
+        Thread.sleep(1000L);
+        System.out.println(System.currentTimeMillis()-t1);
+        test4(null);
+    }
+    public void test4(@com.sun.istack.internal.NotNull String x) {
+        System.out.println(x);
+    }
 }
