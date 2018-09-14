@@ -21,6 +21,12 @@ public class MenuVO implements Serializable {
     @Transient
     private List<ProductVO> list;
 
+    private int lSize;
+
+    public int getlSize() {
+        return lSize;
+    }
+
     public String getNumber() {
         return number;
     }
@@ -42,6 +48,7 @@ public class MenuVO implements Serializable {
     }
 
     public void setList(List<ProductVO> list) {
+        this.lSize = list.size();
         this.list = list;
     }
 

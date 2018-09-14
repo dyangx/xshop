@@ -25,8 +25,8 @@ public class IndexController {
     @RequestMapping("/index.html")
     public String index(Model model) throws InterruptedException, ExecutionException, TimeoutException {
         List<MenuVO> list = indexService.getMenuThread();
+        System.out.println(list);
         model.addAttribute("menus",list);
-        model.addAttribute("men","123456");
         return "index.html";
     }
 
