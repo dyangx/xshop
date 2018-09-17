@@ -1,7 +1,9 @@
 package com.dyang;
 
 import com.dyang.model.MenuVO;
+import com.dyang.model.ProductVO;
 import com.dyang.model.User;
+import com.dyang.respository.ProductRepository;
 import com.dyang.service.IndexService;
 import com.dyang.service.UserService;
 import org.junit.Test;
@@ -10,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
@@ -24,6 +25,9 @@ public class XshopApplicationTests {
 
     @Autowired
     IndexService indexService;
+
+    @Autowired
+    ProductRepository productRepository;
 
     @Test
     public void contextLoads() {
@@ -53,7 +57,9 @@ public class XshopApplicationTests {
         System.out.println(list);
     }
 
-    public void test4(@NotNull String x){
-
+    @Test
+    public void test4(){
+        List<ProductVO> list = productRepository.getStarPro();
+        System.out.println(list);
     }
 }

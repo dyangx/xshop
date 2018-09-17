@@ -27,7 +27,7 @@ public class IndexServiceImpl implements IndexService {
     @Override
     public List<MenuVO> getMenuThread() throws InterruptedException, ExecutionException, TimeoutException {
         //线程池
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
         List<MenuVO> menuList = indexRespository.getMenu();
         List<FutureTask> listTask = new ArrayList<>();
         for(MenuVO vo : menuList){
@@ -58,5 +58,10 @@ public class IndexServiceImpl implements IndexService {
             Thread.sleep(1000L);
         }
         return menuList;
+    }
+
+    @Override
+    public List<ProductVO> getStarProduct() {
+        return productRepository.getStarPro();
     }
 }

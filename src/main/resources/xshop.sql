@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-09-14 18:03:37
+Date: 2018-09-17 17:26:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -52,7 +52,7 @@ CREATE TABLE `product` (
   `KIND` varchar(10) DEFAULT NULL COMMENT '分类',
   `NAME` varchar(255) DEFAULT NULL COMMENT '名称',
   `DESCRIBE` varchar(255) DEFAULT NULL COMMENT '描述',
-  `PRICE` decimal(10,2) DEFAULT NULL COMMENT '价格',
+  `PRICE` decimal(10,1) DEFAULT NULL COMMENT '价格',
   `SDATE` datetime DEFAULT NULL COMMENT '上架时间',
   `IMGURL` varchar(255) DEFAULT NULL COMMENT '图片略缩图',
   `BIMGURL` varchar(255) DEFAULT NULL COMMENT '图片略缩图 大',
@@ -63,29 +63,55 @@ CREATE TABLE `product` (
 -- ----------------------------
 -- Records of product
 -- ----------------------------
-INSERT INTO `product` VALUES ('121s', 'M06', '小米8', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('23', 'M04', '小米8', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfas23', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfas24', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfas2f', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfas5', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfas6', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfas7', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfas8', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfas9', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfasd1f', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfasdf', 'M01', '小米6', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfasdfsdf', 'M01', '小米7', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfasdfsds', 'M01', '小米10', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('adsfasdfssdf', 'M01', '小米9', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('dsd12sas', 'M08', '小米8', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('dsd12sasd', 'M09', '小米8', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('dsd12sasdsad', 'M10', '小米8', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('dsdsas', 'M02', '小米8', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('dsdsas1', 'M07', '小米8', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('dsdsass', 'M03', '小米8', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('dsdsasssa', 'M05', '小米8', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
-INSERT INTO `product` VALUES ('dsdss', 'M02', '小米8', '5月9日-21日享花呗12期分期免息', '1999.90', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('121s', 'M06', '小米8', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('23', 'M04', '小米8', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('5432', 'M02', '小米5s', '5月9日-21日享花呗12期分期免息', '1999.0', '2018-09-17 10:42:05', '/static/image/xm5Splus.jpg', '/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfas23', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfas24', 'M01', '小米7', '	5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfas2f', 'M01', '小米8', '	5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfas5', 'M01', '小米9', '	5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfas6', 'M01', '小米10', '	5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfas7', 'M01', '小米11', '	5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfas8', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfas9', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfasd1f', 'M01', '小米6', '	5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfasdf', 'M01', '小米6', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfasdfsdf', 'M01', '小米7', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfasdfsds', 'M01', '小米10', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('adsfasdfssdf', 'M01', '小米9', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('asdf', 'M02', '小米电视3s', '5月9日，下单立减200元', '3999.0', '2018-09-17 10:46:49', '/static/image/xm5-80.jpg', '/static/image/pinpai4.png', 'Y');
+INSERT INTO `product` VALUES ('asdfas', 'M02', '小米手机5', '5月9日-10日，下单立减100元', '1799.0', '2018-09-17 10:44:25', '/static/image/xm5-80.jpg', '/static/image/pinpai3.png', 'Y');
+INSERT INTO `product` VALUES ('dsd12sas', 'M08', '小米8', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('dsd12sasd', 'M09', '小米8', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('dsd12sasdsad', 'M10', '小米8', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('dsdsas', 'M02', '小米8', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('dsdsas1', 'M07', '小米8', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('dsdsass', 'M03', '小米8', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('dsdsasssa', 'M05', '小米8', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/xshop/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('dsdss', 'M02', '小米8', '5月9日-21日享花呗12期分期免息', '1999.9', '2018-09-12 14:37:33', '/static/image/xm6_80.png', '/static/image/pinpai2.png', 'Y');
+INSERT INTO `product` VALUES ('dsfa', 'M02', '小米MIX', '5月9日-21日享花呗12期分期免息', '3499.0', '2018-09-17 10:36:36', '/static/image/MIX-80.jpg', '/static/image/pinpai1.png', 'Y');
+INSERT INTO `product` VALUES ('sdafa', 'M02', '小米笔记本', '更轻更薄，像杂志一样随身携带', '3599.0', '2018-09-17 10:48:31', '/static/image/xm5-80.jpg', '/static/image/pinpai5.png', 'Y');
+
+-- ----------------------------
+-- Table structure for star_pro
+-- ----------------------------
+DROP TABLE IF EXISTS `star_pro`;
+CREATE TABLE `star_pro` (
+  `ID` varchar(32) NOT NULL,
+  `PROID` varchar(32) NOT NULL COMMENT '产品id',
+  `ORDERD` int(255) DEFAULT NULL COMMENT '排序',
+  `DATE` datetime DEFAULT NULL COMMENT '日期',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of star_pro
+-- ----------------------------
+INSERT INTO `star_pro` VALUES ('adsf', 'asdf', '1', '2018-09-17 00:00:00');
+INSERT INTO `star_pro` VALUES ('asdf', 'sdafa', '2', '2018-09-17 00:00:00');
+INSERT INTO `star_pro` VALUES ('asdfas', 'asdfas', '3', '2018-09-17 00:00:00');
+INSERT INTO `star_pro` VALUES ('asdfd', '5432', '4', '2018-09-17 00:00:00');
+INSERT INTO `star_pro` VALUES ('asdfdsa', 'dsfa', '5', '2018-09-17 00:00:00');
 
 -- ----------------------------
 -- Table structure for user

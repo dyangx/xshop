@@ -16,4 +16,5 @@ public interface IndexRepository extends JpaRepository<MenuVO,String> {
 
     @Query(value = "from MenuVO where used = 'Y' order by orderd")
     public List<MenuVO> getMenu();
+
 }

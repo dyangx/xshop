@@ -1,6 +1,7 @@
 package com.dyang.service;
 
 import com.dyang.model.MenuVO;
+import com.dyang.model.ProductVO;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -14,4 +15,6 @@ public interface IndexService {
     List<MenuVO> getMenuThread() throws InterruptedException, ExecutionException, TimeoutException;
 
     List<MenuVO> getMenu() throws InterruptedException;
+
+    List<ProductVO> getStarProduct();
 }

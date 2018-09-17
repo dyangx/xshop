@@ -89,7 +89,7 @@
 		<ul>
 			<li th:each="menu,iterStat:${menus}">
 				<a href="" th:text="${menu.name}"></a>
-				<div th:class="${menu.lSize > 6}?'pop colum2':'pop colum1'">
+				<div th:class="${menu.lSize <= 6}?'pop colum1':'pop colum2'">
 					<div class="left fl">
 						<div th:each="prod,item:${menu.list}" th:if="${item.index <= 5}">
 							<div class="xuangou_left fl">
@@ -106,83 +106,27 @@
 						</div>
 					</div>
 					<div class="ctn fl" th:if="${menu.lSize > 6}">
-						<div>
+						<div th:each="prod,item:${menu.list}" th:if="${item.index >= 6 && item.index < 12}">
 							<div class="xuangou_left fl">
 								<a href="">
-									<div class="img fl"><img src="/xshop/static/image/xm5-80.jpg" alt=""></div>
-									<span class="fl">小米手机5</span>
+									<div class="img fl">
+										<img th:src="@{${prod.imgUrl}}" alt="">
+									</div>
+									<span class="fl" th:text="${prod.name}"></span>
 									<div class="clear"></div>
 								</a>
 							</div>
-							<div class="xuangou_right fr"><a href="">选购</a></div>
-							<div class="clear"></div>
-						</div>
-						<div>
-							<div class="xuangou_left fl">
-								<a href="">
-									<div class="img fl"><img src="/xshop/static/image/hmn4x80.png" alt=""></div>
-									<span class="fl">红米Note 4X</span>
-									<div class="clear"></div>
-								</a>
-							</div>
-							<div class="xuangou_right fr"><a href="">选购</a></div>
-							<div class="clear"></div>
-						</div>
-						<div>
-							<div class="xuangou_left fl">
-								<a href="">
-									<div class="img fl"><img src="/xshop/static/image/hmnote4-80.jpg" alt=""></div>
-									<span class="fl">红米Note-4</span>
-									<div class="clear"></div>
-								</a>
-							</div>
-							<div class="xuangou_right fr"><a href="">选购</a></div>
-							<div class="clear"></div>
-						</div>
-						<div>
-							<div class="xuangou_left fl">
-								<a href="">
-									<div class="img fl"><img src="/xshop/static/image/hm4x_80.png" alt=""></div>
-									<span class="fl">红米4x</span>
-									<div class="clear"></div>
-								</a>
-							</div>
-							<div class="xuangou_right fr"><a href="">选购</a></div>
-							<div class="clear"></div>
-						</div>
-						<div>
-							<div class="xuangou_left fl">
-								<a href="">
-									<div class="img fl"><img src="/xshop/static/image/hm4-80.jpg" alt=""></div>
-									<span class="fl">红米4</span>
-									<div class="clear"></div>
-								</a>
-							</div>
-							<div class="xuangou_right fr"><a href="">选购</a></div>
-							<div class="clear"></div>
-						</div>
-						<div>
-							<div class="xuangou_left fl">
-								<a href="">
-									<div class="img fl"><img src="/xshop/static/image/hm4A-80.jpg" alt=""></div>
-									<span class="fl">红米4A</span>
-									<div class="clear"></div>
-								</a>
-							</div>
-							<div class="xuangou_right fr"><a href="">选购</a></div>
+							<div class="xuangou_right fr" style="margin-right: 25px"><a href="/xshop/static/xiangqing.html" target="_blank">选购</a></div>
 							<div class="clear"></div>
 						</div>
 					</div>
-					<!--<div class="right fl">
-					</div>-->
+					<div class="right fl"></div>
 					<div class="clear"></div>
 				</div>
 			</li>
 		</ul>
 	</div>
-
 </div>
-
 <div class="sub_banner center">
 	<div class="sidebar fl">
 		<div class="fl"><a href=""><img src="/xshop/static/image/hjh_01.gif"></a></div>
@@ -204,40 +148,19 @@
 
 <!-- start danpin -->
 <div class="danpin center">
-
 	<div class="biaoti center">小米明星单品</div>
 	<div class="main center">
-		<div class="mingxing fl">
-			<div class="sub_mingxing"><a href=""><img src="/xshop/static/image/pinpai1.png" alt=""></a></div>
-			<div class="pinpai"><a href="">小米MIX</a></div>
-			<div class="youhui">5月9日-21日享花呗12期分期免息</div>
-			<div class="jiage">3499元起</div>
+		<div class="mingxing fl" th:each="star:${stars}">
+			<div class="sub_mingxing">
+                <a href=""><img th:src="@{${star.bImgUrl}}" alt=""></a>
+            </div>
+			<div class="pinpai">
+                <a href="javascript:void(0);" th:text="${star.name}"></a>
+            </div>
+			<div class="youhui" th:text="${star.describe}"></div>
+			<div class="jiage"th:text="${star.price} + '元'"></div>
 		</div>
-		<div class="mingxing fl">
-			<div class="sub_mingxing"><a href=""><img src="/xshop/static/image/pinpai2.png" alt=""></a></div>
-			<div class="pinpai"><a href="">小米5s</a></div>
-			<div class="youhui">5月9日-10日，下单立减200元</div>
-			<div class="jiage">1999元</div>
-		</div>
-		<div class="mingxing fl">
-			<div class="sub_mingxing"><a href=""><img src="/xshop/static/image/pinpai3.png" alt=""></a></div>
-			<div class="pinpai"><a href="">小米手机5 64GB</a></div>
-			<div class="youhui">5月9日-10日，下单立减100元</div>
-			<div class="jiage">1799元</div>
-		</div>
-		<div class="mingxing fl">
-			<div class="sub_mingxing"><a href=""><img src="/xshop/static/image/pinpai4.png" alt=""></a></div>
-			<div class="pinpai"><a href="">小米电视3s 55英寸</a></div>
-			<div class="youhui">5月9日，下单立减200元</div>
-			<div class="jiage">3999元</div>
-		</div>
-		<div class="mingxing fl">
-			<div class="sub_mingxing"><a href=""><img src="/xshop/static/image/pinpai5.png" alt=""></a></div>
-			<div class="pinpai"><a href="">小米笔记本</a></div>
-			<div class="youhui">更轻更薄，像杂志一样随身携带</div>
-			<div class="jiage">3599元起</div>
-		</div>
-		<div class="clear"></div>
+		<!--<div class="clear"></div>-->
 	</div>
 </div>
 <div class="peijian w">

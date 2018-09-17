@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "PRODUCT")
 public class ProductVO implements Serializable {
+    private static final long serialVersionUID = 8303313126211646729L;
 
     @Id
     private String id;
@@ -23,6 +24,30 @@ public class ProductVO implements Serializable {
     private String bImgUrl;
     @Column(name = "DESCRIBE")
     private String describe;
+    @Column(name = "PRICE")
+    private String price;
+
+    public ProductVO() {
+    }
+    public ProductVO(String id) {
+        this.id = id;
+    }
+    public ProductVO(String id, String name, String imgUrl, String bImgUrl, String describe, String price) {
+        this.id = id;
+        this.name = name;
+        this.imgUrl = imgUrl;
+        this.bImgUrl = bImgUrl;
+        this.describe = describe;
+        this.price = price;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public String getId() {
         return id;
@@ -72,6 +97,7 @@ public class ProductVO implements Serializable {
                 ", imgUrl='" + imgUrl + '\'' +
                 ", bImgUrl='" + bImgUrl + '\'' +
                 ", describe='" + describe + '\'' +
+                ", price='" + price + '\'' +
                 '}';
     }
 }
