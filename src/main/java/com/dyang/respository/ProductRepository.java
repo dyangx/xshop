@@ -20,4 +20,5 @@ public interface ProductRepository extends JpaRepository<ProductVO,String> {
     @Query(value = "select new ProductVO(a.id,a.name,a.imgUrl,a.bImgUrl,a.describe,a.price) from " +
             "ProductVO a,StarProVO b where a.id = b.proid order by b.orderd",nativeQuery = false)
     public List<ProductVO> getStarPro();
+
 }
